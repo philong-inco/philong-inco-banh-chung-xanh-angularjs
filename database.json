@@ -1,0 +1,394 @@
+{
+  "sanpham": [
+    {
+      "id": "2",
+      "name": "Bánh chưng ngọt nhân đỗ xanh",
+      "description": "Bánh chưng ngọt đỗ thơm ngon béo ngậy Bánh chưng ngọt đỗ thơm ngon béo ngậy Bánh chưng ngọt đỗ thơm ngon béo ngậy Bánh chưng ngọt đỗ thơm ngon béo ngậy ",
+      "price": 75000,
+      "total": 1123,
+      "img": "./img/banh-chung-man-a.png",
+      "createTime": "22-10-2022",
+      "idCategory": "BANHCHUNG",
+      "totalSale": 456,
+      "totalReview": 12
+    },
+    {
+      "id": "3",
+      "name": "Bánh chưng gấc đỏ",
+      "description": "Bánh chưng gấc đỏ nguyên liệu tươi sống, gấc chín mọng nhân mật ngọt",
+      "price": 87000,
+      "total": 2345,
+      "img": "./img/banh-chung-man-a.png",
+      "createTime": "22-10-2022",
+      "idCategory": "BANHCHUNG",
+      "totalSale": 456,
+      "totalReview": 12
+    },
+    {
+      "id": "4",
+      "name": "Bánh chưng chay ngọt thanh gạo thơm",
+      "description": "Bánh chưng chay ngọt thanh gạo thơm nếp nương, chuẩn vị truyền thống thơm ngon",
+      "price": 60000,
+      "total": 999,
+      "img": "./img/banh-chung-man-b.png",
+      "createTime": "22-10-2022",
+      "idCategory": "BANHCHUNG",
+      "totalSale": 456,
+      "totalReview": 12
+    },
+    {
+      "id": "5",
+      "name": "Bánh dầy chay",
+      "description": "Bánh dầy ngon nhức nách",
+      "price": 30000,
+      "total": 345,
+      "img": "./img/banh-chung-man-a.png",
+      "createTime": "22-10-2022",
+      "idCategory": "BANHDAY",
+      "totalSale": 456,
+      "totalReview": 12
+    },
+    {
+      "id": "6",
+      "name": "Bánh dầy ngọt",
+      "description": "Bánh dầy ngon nhức nách",
+      "price": 35000,
+      "total": 222,
+      "img": "./img/banh-chung-man-a.png",
+      "createTime": "22-10-2022",
+      "idCategory": "BANHDAY",
+      "totalSale": 456,
+      "totalReview": 12
+    },
+    {
+      "id": "7",
+      "name": "Bánh dầy nhân đỗ mặn",
+      "description": "Bánh dầy ngon nhức nách",
+      "price": 32000,
+      "total": 999,
+      "img": "./img/banh-chung-man-a.png",
+      "createTime": "22-10-2022",
+      "idCategory": "BANHDAY",
+      "totalSale": 456,
+      "totalReview": 12
+    },
+    {
+      "id": "9",
+      "name": "Bánh chưng mặn thơm ngon béo ngậy",
+      "description": "Bánh dầy ngon nhức nách",
+      "price": 37000,
+      "total": 999,
+      "img": "./img/banh-chung-man-a.png",
+      "createTime": "22-10-2022",
+      "idCategory": "BANHDAY",
+      "totalSale": 456,
+      "totalReview": 12
+    },
+    {
+      "id": "10",
+      "name": "Bánh chưng mặn thơm ngon béo ngậy",
+      "description": "Bánh chưng mặn thơm ngon béo ngậy Bánh chưng mặn thơm ngon béo ngậy Bánh chưng mặn thơm ngon béo ngậy Bánh chưng mặn thơm ngon béo ngậy Bánh chưng mặn thơm ngon béo ngậy",
+      "price": 65000,
+      "total": 999,
+      "img": "./img/banh-chung-man-a.png",
+      "createTime": "22-10-2022",
+      "idCategory": "BANHCHUNG",
+      "totalSale": 456,
+      "totalReview": 12
+    },
+    {
+      "id": "11",
+      "name": "Mâm cơm ngày Tết 8 người",
+      "description": "Mâm cơm ngày Tết 8 người 6 món truyền thống",
+      "price": 470000,
+      "total": 20,
+      "img": "./img/banh-chung-man-a.png",
+      "createTime": "22-10-2022",
+      "idCategory": "MONCOM",
+      "totalSale": 456,
+      "totalReview": 12
+    },
+    {
+      "id": "12",
+      "name": "Hộp quà tặng Sếp, Đối tác và gia đình",
+      "description": "Đầy đủ rượu vang và mứt tết kèm bánh kẹo ngoại trong Hộp quà tặng Sếp, Đối tác và gia đình",
+      "price": 1890000,
+      "total": 99,
+      "img": "./img/banh-chung-man-a.png",
+      "createTime": "22-10-2022",
+      "idCategory": "COMBOQUA",
+      "totalSale": 456,
+      "totalReview": 12
+    }
+  ],
+  "danhmuc": [
+    {
+      "id": "BANHDAY",
+      "name": "Bánh Dầy",
+      "description": "Bánh dầy ngon nhân đỗ, gạo nếp nương mềm dẻo",
+      "creatTime": "17-03-2023"
+    },
+    {
+      "id": "MONCOM",
+      "name": "Món Cơm Ngon",
+      "description": "Các món cơm ngon ngày Tết Cổ Truyền, hương vị thơm ngon nhà làm",
+      "creatTime": "23-06-2023"
+    },
+    {
+      "id": "COMBOQUA",
+      "name": "Combo quà tặng",
+      "description": "Combo quà tặng Tết dành cho gia đình, đối tác quan trọng",
+      "creatTime": "12-02-2023"
+    },
+    {
+      "id": "BANHCHUNG",
+      "name": "Bánh Chưng",
+      "description": "Bánh chưng thơm ngon tuyệt vời",
+      "creatTime": "24-01-2024"
+    }
+  ],
+  "donhang": [
+    {
+      "id": 1,
+      "total": 95000,
+      "ship": 30000,
+      "totalPay": 65000,
+      "name": "Long Nguyễn (edit)",
+      "phone": "123456789999999",
+      "address": "địa chỉ demo (edit)",
+      "createAt": 1706718486283,
+      "listProduct": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "trangThai": "Đã xác nhận"
+    },
+    {
+      "id": 2,
+      "total": 300000,
+      "ship": 30000,
+      "totalPay": 270000,
+      "name": "Long hehee",
+      "phone": "0987654321",
+      "address": "30 trịnh văn bô",
+      "createAt": 1706854684004,
+      "listProduct": [
+        "1",
+        "2"
+      ],
+      "trangThai": "Đã xác nhận"
+    },
+    {
+      "id": 3,
+      "total": 300000,
+      "ship": 30000,
+      "totalPay": 270000,
+      "name": "13",
+      "phone": 13,
+      "address": "13",
+      "createAt": 1706854735175,
+      "listProduct": [
+        "2",
+        "6"
+      ],
+      "trangThai": "Chờ xác nhận"
+    },
+    {
+      "id": 4,
+      "total": 300000,
+      "ship": 30000,
+      "totalPay": 270000,
+      "name": "14",
+      "phone": 14,
+      "address": "14",
+      "createAt": 1706854749659,
+      "listProduct": [
+        "1",
+        "3"
+      ],
+      "trangThai": "Đang giao"
+    },
+    {
+      "id": 5,
+      "total": 95000,
+      "ship": 30000,
+      "totalPay": 65000,
+      "name": "Long Nguyễn",
+      "phone": 15,
+      "address": "15",
+      "createAt": 1706854773971,
+      "listProduct": [
+        "3"
+      ],
+      "trangThai": "Hoàn thành"
+    },
+    {
+      "id": 6,
+      "total": 95000,
+      "ship": 30000,
+      "totalPay": 65000,
+      "name": "16",
+      "phone": 16,
+      "address": "16",
+      "createAt": 1706854835777,
+      "listProduct": [
+        "6"
+      ],
+      "trangThai": "Đã xác nhận"
+    },
+    {
+      "id": 7,
+      "total": 300000,
+      "ship": 30000,
+      "totalPay": 270000,
+      "name": "17",
+      "phone": 17,
+      "address": "17",
+      "createAt": 1706854851464,
+      "listProduct": [
+        "2",
+        "3"
+      ],
+      "trangThai": "Hoàn thành"
+    },
+    {
+      "id": 8,
+      "total": 255000,
+      "ship": 30000,
+      "totalPay": 225000,
+      "name": "Lung Thị Linh",
+      "phone": 987654321,
+      "address": "ádfghjkl",
+      "createAt": 1706859792606,
+      "listProduct": [
+        "8",
+        "7"
+      ],
+      "trangThai": "Đã xác nhận"
+    },
+    {
+      "id": 9,
+      "total": 15120000,
+      "ship": 0,
+      "totalPay": 15120000,
+      "name": "Long Nguyễn",
+      "phone": 1111111111111,
+      "address": "1111111111111111",
+      "createAt": 1706863032879,
+      "listProduct": [
+        "3"
+      ],
+      "trangThai": "Đã xác nhận"
+    },
+    {
+      "id": 10,
+      "total": 190000,
+      "ship": 30000,
+      "totalPay": 160000,
+      "name": "Long",
+      "phone": 987654321,
+      "address": "ádfghjkl",
+      "createAt": 1706886792123,
+      "listProduct": [
+        "1",
+        "5"
+      ],
+      "trangThai": "Chờ xác nhận"
+    },
+    {
+      "id": 11,
+      "total": 134000,
+      "ship": 30000,
+      "totalPay": 104000,
+      "name": "Longdemo",
+      "phone": 1234567890,
+      "address": "abcabc",
+      "createAt": 1706920773577,
+      "listProduct": [
+        "5",
+        "9"
+      ],
+      "trangThai": "Chờ xác nhận"
+    },
+    {
+      "id": 12,
+      "total": 134000,
+      "ship": 30000,
+      "totalPay": 104000,
+      "name": "Longdm",
+      "phone": 234567890,
+      "address": "3457890",
+      "createAt": 1707904365808,
+      "listProduct": [
+        "5",
+        "9"
+      ],
+      "trangThai": "Chờ xác nhận"
+    }
+  ],
+  "giohang": [
+    {
+      "id": "5",
+      "name": "Bánh dầy chay",
+      "price": 30000,
+      "total": 1,
+      "img": "./img/banh-chung-man-a.png",
+      "totalPay": 30000
+    },
+    {
+      "id": "9",
+      "name": "Bánh chưng mặn thơm ngon béo ngậy",
+      "price": 37000,
+      "total": 2,
+      "img": "./img/banh-chung-man-a.png",
+      "totalPay": 74000
+    }
+  ],
+  "account": [
+    {
+      "id": "1",
+      "name": "Long Nguyễn",
+      "email": "longnvph31848@fpt.edu.vn",
+      "password": "123",
+      "power": "guest"
+    },
+    {
+      "id": "2",
+      "name": "Long Nguyễn",
+      "email": "admin@long.vn",
+      "password": "123",
+      "power": "admin"
+    },
+    {
+      "id": "LYaJJ1m",
+      "name": "Hùng demo",
+      "email": "a@gmail.com",
+      "password": "123",
+      "power": "guest"
+    },
+    {
+      "id": "Sydza-L",
+      "name": "a",
+      "email": "a@hot.com",
+      "password": "a",
+      "power": "guest"
+    }
+  ],
+  "isLogin": [
+    {
+      "id": "1",
+      "name": "Long Nguyễn",
+      "email": "admin@long.vn",
+      "password": "123",
+      "power": "admin"
+    }
+  ],
+  "isListProductNow": [
+    {
+      "id": 1,
+      "path": "?id=9&id=5"
+    }
+  ]
+}

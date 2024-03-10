@@ -1,0 +1,213 @@
+<div class="container" style="min-height: calc(100vh - 443px);">
+    <!-- Slideshow -->
+    <!-- Carousel -->
+    <div class="rounded border overflow-hidden mt-2">
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/slide1.png" alt="Los Angeles" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/slide2.png" alt="Chicago" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/slide3.png" alt="New York" class="d-block w-100">
+                </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Chia layout 3-7 -->
+    <div class="d-flex mt-3">
+        <!-- Menu sidebar -->
+        <div class="w-25 position-relative">
+            <div class="position-sticky start-0 me-3 mb-3" style="top: 140px;">
+                <h5 class="my-2">Danh mục</h5>
+                <nav class="navbar bg-light rounded border-1 shadow">
+
+                    <div class="container-fluid">
+                        <!-- Links -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item" ng-repeat="item in listCategory">
+                                <a class="nav-link" href="#!search/{{item.id}}">{{item.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+
+        <!-- Nội dung trang chủ -->
+        <div class="w-75 bg-light">
+            <!-- Danh sách sản phẩm mới -->
+            <div>
+                <h4>Sản phẩm mới</h4>
+                <div class="row">
+                    <!-- Item -->
+                    <div class="col-4" ng-repeat="item in listNewProduct">
+                        <div class="m-1 mb-2 border shadow-sm rounded overflow-hidden" style="min-height: 350px;">
+                            <!-- Ảnh -->
+                            <div class="position-relative" style="height: 160px; overflow: hidden;">
+                                <a href="#!detail/{{item.id}}">
+                                    <img src="{{item.img}}" alt="" class="w-100 h-100"
+                                        style="object-fit: cover;object-position: center;">
+                                </a>
+                                <!-- Label -->
+                                <div style="position: absolute; bottom: 0; left: 0;" class="w-25">
+                                    <img src="./img/price-label.png" alt="" class="w-100">
+                                </div>
+                                <div style="position: absolute; bottom: 10px; left: 3px;" class="w-25">
+                                    <span class="h5 text-warning"
+                                        style="text-shadow: .5px .5px 0px white;">{{item.price}}</span>
+                                </div>
+                                <div style="position: absolute; top: -10px; left: -10px;" class="w-25">
+                                    <img src="./img/fire-3.webp" alt="" class="w-100">
+                                </div>
+                                <!-- Label -->
+                                <div style="position: absolute; bottom: 0; right: 0;">
+                                    <a href="#!product-comfirm/{{item.id}}"><i style="cursor: pointer;"
+                                            class="fa-solid fa-dollar-sign text-success bg-light border rounded my-1 py-2 px-3"></i></a>
+                                    <i ng-click="addToCart(item.id, item.name, item.price, item.img)"
+                                        style="cursor: pointer;"
+                                        class="fa-solid fa-cart-shopping text-danger bg-light border rounded my-1 me-1 py-2 px-3"></i>
+                                </div>
+                            </div>
+                            <!-- Nội dung -->
+                            <div class="m-2 d-flex flex-column justify-content-between" style="min-height: 172px;">
+                                <div>
+                                    <a href="#!detail/{{item.id}}" class="text-dark" style="text-decoration: none;">
+                                        <div style="display: -webkit-box;
+                                        -webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 2;">
+                                            <h5 class="mt-1">{{item.name}}</h5>
+                                        </div>
+                                    </a>
+                                    <div
+                                        style="display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 3;">
+                                        <p>{{item.description}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <div class="text-warning">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-truck-fast text-success"></i>
+                                        <span>Freeship</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <!-- Banner -->
+            <div class="my-3">
+                <a href="#">
+                    <img src="./img/category-background.png" alt="" class="w-100">
+                </a>
+            </div>
+
+            <!-- Danh sách sản phẩm bán chạy -->
+            <div class="my-5">
+                <h4>Sản phẩm bán chạy</h4>
+                <div class="row">
+                    <!-- Item -->
+                    <div class="col-3" ng-repeat="o in listHotProduct">
+                        <div class="m-1 mb-2 border shadow-sm rounded overflow-hidden" style="min-height: 311px;">
+                            <!-- Ảnh -->
+                            <div class="position-relative" style="height: 120px; overflow: hidden;">
+                                <a href="#!detail/{{o.id}}">
+                                    <img src="{{o.img}}" alt="" class="w-100 h-100"
+                                        style="object-fit: cover;object-position: center;">
+                                </a>
+                                <!-- Label -->
+                                <div style="position: absolute; bottom: 0; left: 0;" class="w-25">
+                                    <img src="./img/price-label.png" alt="" class="w-100">
+                                </div>
+                                <div style="position: absolute; bottom: 4px; left: 1px;" class="w-25">
+                                    <span class="text-warning"
+                                        style="text-shadow: .5px .5px 0px white; font-size: 16px;">{{o.price}}</span>
+                                </div>
+                                <div style="position: absolute; top: -10px; left: -10px;" class="w-25">
+                                    <img src="./img/salelabel.gif" alt="" class="w-100">
+                                </div>
+                                <!-- Label -->
+                                
+                                <div style="position: absolute; bottom: 0; right: 0;">
+                                    <a href="#!product-comfirm/{{o.id}}"><i style="cursor: pointer;"
+                                            class="fa-solid fa-dollar-sign text-success bg-light border rounded my-1 py-2 px-2"></i></a>
+                                    <i ng-click="addToCart(o.id, o.name, o.price, o.img)"
+                                        style="cursor: pointer;"
+                                        class="fa-solid fa-cart-shopping text-danger bg-light border rounded my-1 me-1 py-2 px-2"></i>
+                                </div>
+                            </div>
+                            <!-- Nội dung -->
+                            <div class="m-2 d-flex flex-column justify-content-between" style="min-height: 172px;">
+                                <div>
+                                    <a href="#!detail/{{o.id}}" class="text-dark" style="text-decoration: none;">
+                                        <div style="display: -webkit-box;
+                                        -webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 2;">
+                                            <h5 class="mt-1">{{o.name}}</h5>
+                                        </div>
+                                    </a>
+                                    <div
+                                        style="display: -webkit-box;-webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 3;">
+                                        <p>Bánh dầy mặn ngon Bánh dầy mặn ngon Bánh dầy mặn ngon </p>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div class="text-warning">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-truck-fast text-success"></i>
+                                        <span>Freeship</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Sản phẩm -->
+        </div>
+    </div>
+</div>

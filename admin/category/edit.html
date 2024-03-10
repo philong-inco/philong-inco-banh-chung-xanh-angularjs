@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loong - Trang chủ</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+
+</head>
+
+<body>
+
+
+
+    <!-- Body -->
+    <div class="container" style="min-height: calc(100vh - 443px);">
+
+        <!-- Chia layout 3-7 -->
+        <div class="d-flex mt-3">
+            <!-- Menu sidebar -->
+            <div class="w-25 position-relative">
+                <div class="position-sticky start-0 me-3 mb-3" style="top: 130px;">
+                    <h5 class="my-2">Quản trị</h5>
+                    <nav class="navbar bg-light rounded border-1 shadow">
+
+                        <div class="container-fluid">
+                            <!-- Links -->
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold" href="#!category-create">Thêm danh mục</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold text-primary" href="#!category-update/BANHCHUNG">Sửa danh
+                                        mục</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold" href="#!category-detail/BANHCHUNG">Chi tiết danh mục</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold" href="#!category-list">Danh sách danh mục</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </nav>
+                    <h5 class="mt-4">Admin</h5>
+                    <nav class="navbar bg-light rounded border-1 shadow mt-3">
+
+                        <div class="container-fluid">
+
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold" href="#!product-list">Quản lý sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold active" href="#!category-list">Quản lý danh mục</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold " href="#!bill-list">Quản lý đơn hàng</a>
+                                </li>
+                            </ul>
+
+
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Nội dung trang chủ -->
+            <div class="my-3 w-75 bg-light">
+                <h4>Sửa danh mục</h4>
+
+                <!-- form nhập thông tin -->
+                <div>
+                    <form action="">
+                        <label class="form-label fw-bold">ID danh mục:</label>
+                        <input ng-model="cate.id" type="text" class="form-control" disabled>
+                        <label class="form-label fw-bold">Tên danh mục:</label>
+                        <input ng-model="cate.name" type="text" class="form-control">
+                        <label class="form-label fw-bold">Mô tả danh mục:</label>
+                        <input ng-model="cate.description" type="text" class="form-control">
+                        <label class="form-label fw-bold">Ngày tạo:</label>
+                        <input ng-model="cate.creatTime" type="text" class="form-control">
+                        <button ng-click="update()" type="submit"
+                            class="bg-warning text-light border rounded py-1 px-2 mt-3">Sửa</button>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal"
+                            class="text-decoration-none bg-danger text-light border rounded py-1 px-2 mt-3">Xóa</button>
+                        <!-- <button type="submit" class="bg-primary text-light border rounded py-1 px-2 mt-3"
+                            onclick="alert('Sửa thành công')">Sửa</button>
+                        <button type="submit" class="bg-danger text-light border rounded py-1 px-2 mt-3"
+                            onclick="alert('Xóa thành công')">Xóa</button> -->
+                        <!-- The Modal -->
+                        <div style="margin-top: 200px;" class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Xác nhận xóa</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Bạn có chắc chắn xóa danh mục "{{cate.name}}"
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Hủy</button>
+                                        <button type="button" class="btn btn-danger" ng-click="delete()">Xóa</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <span class=" ms-5 text-danger" ng-show="!isHopLe">{{mess}}</span>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

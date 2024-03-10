@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loong - Admin | Quản lý sản phẩm</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <!-- Body -->
+    <div class="container" style="min-height: calc(100vh - 443px);">
+
+        <!-- Chia layout 3-7 -->
+        <div class="d-flex mt-3">
+            <!-- Menu sidebar -->
+            <div class="w-25 position-relative">
+                <div class="position-sticky start-0 me-3 mb-3" style="top: 130px;">
+                    <h5 class="my-2">Quản trị</h5>
+                    <nav class="navbar bg-light rounded border-1 shadow">
+
+                        <div class="container-fluid">
+                            <!-- Links -->
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold " href="#!product-create">Thêm sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold text-primary" href="#!product-edit/1">Sửa sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold" href="#!product-detail/1">Chi tiết sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold" href="#!product-list">Danh sách sản phẩm</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </nav>
+
+                    <h5 class="mt-4">Admin</h5>
+                    <nav class="navbar bg-light rounded border-1 shadow mt-3">
+
+                        <div class="container-fluid">
+
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold active" href="#!product-list">Quản lý sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold " href="#!category-list">Quản lý danh mục</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold " href="#!bill-list">Quản lý đơn hàng</a>
+                                </li>
+                            </ul>
+
+
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Nội dung trang chủ -->
+            <div class="w-75 bg-light px-3 py-1 my-3">
+                <h4 class="mb-3">Thêm sản phẩm</h4>
+
+                <!-- form nhập thông tin -->
+                <div>
+                    <form action="">
+                        <label class="form-label fw-bold">Tên sản phẩm:</label>
+                        <input ng-model="product.name" type="text" class="form-control">
+                        <label class="form-label fw-bold">Mô tả sản phẩm:</label>
+                        <input ng-model="product.description" type="text" class="form-control">
+                        <label class="form-label fw-bold mt-3">Danh mục:</label><br>
+                        <select class="form-control" ng-model="product.idCategory">
+                            <option ng-repeat="k in listCategory" value="{{k.id}}">{{k.name}}</option>
+                        </select>
+                        <label class="form-label mt-3 fw-bold">Số lượng tồn kho:</label><br>
+                        <input ng-model="product.total" type="number" class="form-control">
+                        <label class="form-label mt-3 fw-bold">Giá bán:</label><br>
+                        <input ng-model="product.price" type="number" class="form-control">
+                        <label for="fileInput" class="form-label mt-3 fw-bold me-5">Ảnh sản phẩm:</label>
+                        <label class="form-label mt-3 fw-bold ms-5">Tổng bán:</label>
+                        <span>{{product.totalSale}}</span>
+                        <label class="form-label mt-3 fw-bold ms-5">Tổng đánh giá:</label>
+                        <span>{{product.totalReview}}</span>
+                        <label class="form-label mt-3 fw-bold ms-5">Ngày tạo:</label>
+                        <span>{{product.createTime}}</span>
+
+                        <br>
+                        <div style="min-height: 90px;">
+                            <input class="form-control w-50" type="file" id="fileInput" ng-model="product.img" />
+                            <img style="width: 70px;" src="{{product.img}}" alt="">
+
+                        </div>
+                        <br>
+                        <!-- <label class="form-label mt-3 fw-bold">Ngày tạo:</label><br>
+                        <input ng-model="product.createTime" type="number" class="form-control"> -->
+                        <a href="#!product-list"
+                            class="btn text-decoration-none bg-secondary text-light border rounded py-1 px-2 mt-3">Quay
+                            lại</a>
+                        <button ng-click="insert()" class="btn bg-warning text-dark border rounded py-1 px-2 mt-3 mx-1">Sửa
+                            sản phẩm</button>
+
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#myModal"
+                            class="btn bg-danger px-2 py-1 mt-3 text-white">Xóa</button>
+                        <div style="margin-top: 200px;" class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Xác nhận xóa</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Bạn có chắc chắn xóa sản phẩm <br> <span class="fw-bold">"{{product.name}}"</span>?
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Hủy</button>
+                                        <button type="button" class="btn btn-danger"
+                                            ng-click="delete(o.id)">Xóa</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4 mt-2" style="min-height: 30px;">
+                            <span class="text-danger" ng-show="!isVaild">{{mess}}</span>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+                <!-- Bảng danh sách sản phẩm -->
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getFileDetails() {
+            const fileInput = document.getElementById('fileInput');
+            const filePath = fileInput.value; // Đường dẫn file được chọn
+            alert("Đường dẫn file: " + filePath);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!-- Body -->
+<div class="container" style="min-height: calc(100vh - 443px);">
+
+    <!-- Chia layout 3-7 -->
+    <div class="d-flex mt-3">
+        <!-- Menu sidebar -->
+        <div class="w-25 position-relative">
+            <div class="position-sticky start-0 me-3 mb-3" style="top: 130px;">
+                <h5 class="my-2">Quản trị</h5>
+                <nav class="navbar bg-light rounded border-1 shadow">
+
+                    <div class="container-fluid">
+                        <!-- Links -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold text-primary" href="#!bill-list">Danh sách đơn hàng</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#!bill-detail/1">Chi tiết đơn hàng</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#!bill-edit/1">Sửa đơn hàng</a>
+                            </li>
+                        </ul>
+
+
+
+                    </div>
+
+                </nav>
+                <h5 class="mt-4">Admin</h5>
+                <nav class="navbar bg-light rounded border-1 shadow mt-3">
+
+                    <div class="container-fluid">
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#!product-list">Quản lý sản phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="#!category-list">Quản lý danh mục</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold active" href="#!bill-list">Quản lý đơn hàng</a>
+                            </li>
+                        </ul>
+
+
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+
+        <!-- Nội dung trang chủ -->
+        <div class="w-75 bg-light">
+            <!-- Heading -->
+            <div class="d-flex my-4">
+                <!-- Logo -->
+                <div>
+                    <img src="./img/loong-logo-footer.png" alt="" style="width: 100px;">
+                </div>
+                <h4 class="ms-3">| Admin - Quản lý đơn hàng</h4>
+            </div>
+
+            <!-- Địa chỉ giao hàng -->
+            <div class="rounded border p-2 shadow">
+                <div class="row">
+                    <div class="col-6 d-flex align-items-center">
+                        <i class="fa-solid fa-money-bill text-success fs-2"></i>
+                        <span class="ms-3 fw-medium">Tổng đơn hàng:
+                            <span class="text-danger fw-bold">{{totalBill}}</span>
+                        </span>
+
+
+                    </div>
+                    <div class="col-6">
+                        <h6 style="margin-left: 90px;">Tìm mã đơn hàng</h6>
+                        <div class=" d-flex align-items-center justify-content-end">
+                            <form action="" class="d-flex">
+                                <input type="text" placeholder="Nhập mã đơn hàng"
+                                    class="me-2 border rounded p-1 border-warning" style="width: 294px;">
+                                <button class="bg-warning border-0 rounded p-1">Tìm kiếm</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Danh sách sản phẩm mua -->
+            <div class="rounded border p-2 shadow my-4">
+                <!-- Tiêu đề -->
+                <div class="row mt-2 border-bottom pb-2">
+                    <div class="col-1 fw-bold">ID:</div>
+                    <div class="col-2 fw-bold">SĐT khách</div>
+                    <div class="col-3 fw-bold">Khách hàng</div>
+                    <div class="col-2 fw-bold">Trạng thái</div>
+                    <div class="col-2 fw-bold">Thành tiền</div>
+                    <div class="col-2 fw-bold">Chi tiết</div>
+                </div>
+
+                <!-- Item -->
+                <div class="row mt-2 border-bottom" ng-repeat="o in listBill">
+                    <div class="col-1 d-flex align-items-center">
+
+                        <span class="ms-2">{{o.id}}</span>
+                    </div>
+                    <div class="col-2 d-flex align-items-center">{{o.phone}}</div>
+                    <div class="col-3 d-flex align-items-center">{{o.name}}</div>
+                    <div class="col-2 d-flex align-items-center text-success">
+                        {{o.trangThai}}
+                    </div>
+
+                    <div class="col-2 d-flex align-items-center fw-bold">{{o.totalPay}}đ</div>
+                    <div class="col-2 d-flex align-items-center fw-bold">
+                        <a href="#!bill-detail/{{o.id}}" class="text-dark btn btn-warning btn-sm">Xem</a>
+                        <a href="#!bill-edit/{{o.id}}" class="text-light btn btn-primary btn-sm ms-1">Sửa</a>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+            <!-- phân trang -->
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <button class="bg-warning text-white border rounded px-3 py-1 mx-1">|< </button>
+                        <button class="bg-warning text-white border rounded px-3 py-1 mx-1">
+                            <<</button>
+                                <button class="bg-warning text-white border rounded px-3 py-1 mx-1">>></button>
+                                <button class="bg-warning text-white border rounded px-3 py-1 mx-1">>|</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>

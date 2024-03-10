@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loong - Xác nhận đơn hàng</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+
+</head>
+
+<body ng-controller="XacNhanDonHangCtrl">
+
+    
+    <!-- Body -->
+    <div class="container" style="min-height: calc(100vh - 443px);">
+        <!-- Heading -->
+        <div class="d-flex my-4">
+            <!-- Logo -->
+            <div>
+                <img src="./img/loong-logo-footer.png" alt="" style="width: 100px;">
+            </div>
+            <h4 class="ms-3">| Thanh toán</h4>
+        </div>
+
+        <!-- Địa chỉ giao hàng -->
+        <div class="rounded border p-2 shadow">
+            <div class="row pt-1">
+                <div class="col-6">
+                    <i class="fa-solid fa-location-dot text-danger"></i><span class="ms-2">Địa chỉ nhận hàng</span>
+                    <p>{{address}}<br>
+                        Họ tên: {{name1}} <br><b>(SĐT: 0{{phoneNumber}})</b></p>
+                    
+                    
+                </div>
+                <div class="col-6">
+                    <h6 style="margin-left: 4px;">Thay đổi địa chỉ nhận hàng</h6>
+                    <div class=" d-flex align-items-center justify-content-end">
+                        <form action="" class="">
+                            <input ng-model="name1" type="text"  placeholder="Nhập tên" class="me-2 border rounded p-1 border-warning" required>
+                            <input ng-model="phoneNumber" type="number"  placeholder="Nhập SĐT" class="me-2 border rounded p-1 border-warning" required>
+                            <input ng-model="address" type="text"  placeholder="Nhập địa chỉ" class="me-2 border rounded p-1 border-warning" required>
+                            
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Danh sách sản phẩm mua -->
+        <div class="rounded border p-2 shadow my-4">
+            <!-- Tiêu đề -->
+            <div class="row mt-2 border-bottom">
+                <div class="col-4">
+                    <h5>Sản phẩm</h5>
+                </div>
+                <div class="col-2">Loại</div>
+                <div class="col-2">Đơn giá</div>
+                <div class="col-2">Số lượng</div>
+                <div class="col-2">Thành tiền</div>
+            </div>
+
+            <!-- Item -->
+            <div class="row mt-2 border-bottom">
+                <div class="col-4 d-flex align-items-center">
+                    <img src="./img/menu-child-banh-chung.png" alt="" style="width: 50px;">
+                    <a class="text-dark ms-2 text-decoration-none" href="#!detail/{{productItem.id}}">{{productItem.name}}</a>
+                </div>
+                <div class="col-2 d-flex align-items-center">{{productItem.idCategory}}</div>
+                <div class="col-2 d-flex align-items-center">{{productItem.price}} VNĐ</div>
+                <div class="col-2 d-flex align-items-center">1</div>
+                <div class="col-2 d-flex align-items-center fw-bold">{{productItem.price}} VNĐ</div>
+            </div>
+            
+
+        </div>
+
+        <!-- Khu vục thanh toán -->
+        <div class="row d-flex justify-content-between my-3">
+            <div class="col-6 ms-2">
+                <p>Quý khách vui lòng kiểm tra lại những sản phẩm cần mua và nhấn "Xác nhận đơn hàng",
+                    cửa hàng sẽ liên lạc xác nhận đơn hàng và sớm giao hàng cho quý khách. <br>
+                    Miễn phí vận chuyển cho đơn hàng trên 500,000 VNĐ</p>
+            </div>
+            <div class="col-3 me-2">
+                <!-- Tổng tiền hàng -->
+                <div class="d-flex justify-content-between">
+                    <span class="fw-bold">Tổng tiền hàng</span>
+                    <span class="fst-italic">{{totalPay}}đ</span>
+                </div>
+                <!-- Phí vận chuyển -->
+                <div class="d-flex justify-content-between">
+                    <span class="fw-bold">Phí vận chuyển</span>
+                    <span class="fst-italic">{{ship}}đ</span>
+                </div>
+                <!-- Tổng thanh toán -->
+                <div class="d-flex justify-content-between">
+                    <span class="fw-bold">Tổng thanh toán</span>
+                    <span class="fst-italic fw-bold text-success">{{bill}}đ</span>
+                </div>
+                <!-- Nút đặt hàng -->
+                <div class="my-2">
+                    <button ng-click="comfirm()" class="btn btn-warning w-100" >Xác nhận đơn hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

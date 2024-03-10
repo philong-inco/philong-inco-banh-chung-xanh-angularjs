@@ -1,0 +1,155 @@
+<body>
+
+    <!-- Body -->
+    <div class="container" style="min-height: calc(100vh - 443px);">
+
+
+        <!-- Banner -->
+        <div style="height: 350px;">
+            <img src="./img/back-ground-1.jpg" alt="" class="w-100 h-100" style="object-fit: cover; object-position: center;">
+        </div>
+
+        <!-- Chia layout 3-7 -->
+        <div class="d-flex mt-3 ">
+            <!-- Menu sidebar -->
+            <div class="w-25 position-relative">
+                <div class="me-3 mb-3 position-sticky" style="top: 130px;">
+                    <div>
+                        <h5 class="my-2"><i class="fa-solid fa-list"></i> Danh mục</h5>
+                        <nav class="navbar bg-light rounded border-1 shadow">
+
+                            <div class="container-fluid">
+                                <!-- Links -->
+                                <ul class="navbar-nav">
+                                    <li class="nav-item" ng-repeat="o in listCategory">
+                                        <a class="nav-link" style="cursor: pointer;"
+                                            ng-click="filterByCategory(o.id, o.name)">{{o.name}}</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </nav>
+                    </div>
+                    <!-- Lọc theo giá -->
+                    <div class="my-5">
+                        <h5><i class="fa-solid fa-filter"></i> Giá bán</h5>
+                        <form action="" class="ms-2">
+                            <input ng-click="clickRadioPrice(50000)" name="price" type="radio"><span class="ms-2">Dưới
+                                50,000 VNĐ</span><br>
+                            <input ng-click="clickRadioPrice(60000)" name="price" type="radio"><span class="ms-2">Dưới
+                                60,000 VNĐ</span><br>
+                            <input ng-click="clickRadioPrice(80000)" name="price" type="radio"><span class="ms-2">Dưới
+                                80,000 VNĐ</span><br>
+                            <input ng-click="clickRadioPrice(100000)" name="price" type="radio"><span class="ms-2">Dưới
+                                100,000 VNĐ</span><br>
+                            <input ng-click="clickRadioPrice(500000)" name="price" type="radio"><span class="ms-2">Dưới
+                                500,000 VNĐ</span>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <!-- Nội dung trang chủ -->
+            <div class="w-75 bg-light">
+                <!-- Input search -->
+                <h4>Tìm kiếm sản phẩm</h4>
+                <div class="my-3">
+                    <div class="rounded border border-warning">
+                        <form action="" class="d-flex m-1">
+
+                            <input ng-model="keywordForSearchChild" type="text" class="form-control border-0"
+                                placeholder="Nhập sản phẩm cần tìm...">
+                            <button ng-click="clickSearchChild(keywordForSearchChild)" type="submit"
+                                class="form-control bg-warning ms-2" style="width: 50px;">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Banner -->
+                <div class="my-4">
+                    <a href="TrangChu.html">
+                        <img src="./img/category-background.png" alt="" class="w-100">
+                    </a>
+                </div>
+
+                <!-- Danh sách sản phẩm bán chạy -->
+                <div class="my-5" style="min-height: 746px;">
+                    <h4 class="d-inline">Kết quả cho : </h4>
+                    <span class="h4 text-warning">"{{keyword}}"</span>
+                    <div class="row mt-3">
+                        <!-- Item -->
+                        <div class="col-3" ng-repeat="o in listSearch">
+                            <div class="m-1 mb-2 border shadow-sm rounded overflow-hidden" style="min-height: 289px;">
+                                <!-- Ảnh -->
+                                <div class="position-relative" style="height: 110px; overflow: hidden;">
+                                    <a href="#!detail/{{o.id}}">
+                                        <img src="{{o.img}}" alt="" class="w-100 h-100"
+                                            style="object-fit: cover;object-position: center;">
+                                    </a>
+                                    <!-- Label -->
+                                    <div style="position: absolute; bottom: 0; left: 0;" class="w-25">
+                                        <img src="./img/price-label.png" alt="" class="w-100">
+                                    </div>
+                                    <div style="position: absolute; bottom: 3px; left: 1px;" class="w-25">
+                                        <span class="h6 text-warning"
+                                            style="text-shadow: .5px .5px 0px white; font-size: 16px;">{{o.price}}</span>
+                                    </div>
+                                    <!-- Label -->
+                                    <div style="position: absolute; bottom: 0; right: 0;">
+                                        <a href="#!product-comfirm/{{o.id}}"><i style="cursor: pointer;"
+                                                class="fa-solid fa-dollar-sign text-success bg-light border rounded my-1 py-1 px-2"></i></a>
+                                        <i ng-click="addToCart(o.id, o.name, o.price, o.img)" style="cursor: pointer;"
+                                            class="fa-solid fa-cart-shopping text-danger bg-light border rounded my-1 me-1 py-1 px-1"></i>
+                                    </div>
+                                </div>
+                                <!-- Nội dung -->
+                                <div class="m-2 d-flex flex-column justify-content-between" style="min-height: 160px;">
+                                    <div>
+                                        <a href="#!detail/{{o.id}}" class="text-dark" style="text-decoration: none;">
+                                            <div style="display: -webkit-box; min-height: 55px;
+                                            -webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 2;">
+                                                <h5 class="mt-1">{{o.name}}</h5>
+                                            </div>
+                                        </a>
+                                        <div style="display: -webkit-box;
+                                        -webkit-box-orient: vertical;overflow: hidden;-webkit-line-clamp: 3;">
+
+                                            <p>{{o.description}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="text-warning">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <div>
+                                            <i class="fa-solid fa-truck-fast text-success"></i>
+                                            <span>Freeship</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Sản phẩm -->
+            </div>
+        </div>
+    </div>
+
+
+</body>

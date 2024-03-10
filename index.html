@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB207_TaiNguyen_thuvien</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+
+    <!-- Cấu hình route -->
+    <script src="index.js"></script>
+
+
+    <!-- Nhúng các controller khác -->
+    <script src="ChiTietGioHang.js"></script>
+    <script src="ChiTietSanPham.js"></script>
+    <script src="DangKy.js"></script>
+    <script src="DangNhap.js"></script>
+
+    <script src="/admin/category/list.js"></script>
+    <script src="/admin/category/detail.js"></script>
+    <script src="/admin/category/create.js"></script>
+    <script src="/admin/category/edit.js"></script>
+
+    <script src="/admin/product/create.js"></script>
+    <script src="/admin/product/list.js"></script>
+    <script src="/admin/product/edit.js"></script>
+    <script src="/admin/product/detail.js"></script>
+
+
+    <script src="/admin/bill/detail.js"></script>
+    <script src="/admin/bill/edit.js"></script>
+    <script src="/admin/bill/list.js"></script>
+
+    <!-- <script src="QuanLyDanhMuc.js"></script>
+    <script src="QuanLyDonHang.js"></script>
+    <script src="QuanLySanPham.js"></script> -->
+    <script src="TimKiem.js"></script>
+    <script src="TrangChu.js"></script>
+    <script src="XacNhanDonHang.js"></script>
+    <script src="XacNhanDonHangList.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="mainCtrl">
+    <!-- Header -->
+    <div class="position-sticky top-0" style="z-index: 99999;">
+
+        <nav class="navbar navbar-expand-sm bg-danger">
+
+            <div class="container">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item me-5">
+                        <a class="nav-link text-light" href="#!/">
+                            <img src="./img/loong-logo.png" alt="" style="width: 120px;">
+                        </a>
+                    </li>
+                    <li class="nav-item ms-5">
+                        <div class="bg-light rounded p-1 ms-5">
+                            <form class="d-flex">
+                                <input ng-model="keywordSearch" type="text" class="form-control border-white"
+                                    placeholder="Nhập sản phẩm cần tìm...">
+                                <a href="#!search/{{keywordSearch}}">
+                                    <button class="btn btn-dark ms-1" type="submit">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </a>
+
+                            </form>
+                        </div>
+
+                    </li>
+
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li  ng-if="!isLogin" class="text-warning nav-item mx-1 mt-2"> Chào, {{accountMain.name}}</li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link text-light position-relative" href="#!cart"><i
+                                class="fa-solid fa-cart-shopping">
+                                <span class="badge bg-warning position-absolute text-dark"
+                                    style="top: -3px; right: -10px;">
+                                    {{totalCart}}
+                                </span>
+                            </i> Giỏ hàng</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link text-light" href="#"><i class="fa-solid fa-rectangle-ad"></i> Khuyến mãi</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link text-light" href="#!resigner"><i class="fa-solid fa-user"></i> Tài khoản</a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+        <!-- Menu danh mục -->
+        <nav class="navbar navbar-expand-sm bg-dark">
+
+            <div class="container">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item me-5" ng-repeat="item in listCategory">
+                        <a class="nav-link text-white" href="#!search/{{item.id}}">
+                            <i class="fa-solid fa-cake-candles me-1"></i>
+                            {{item.name}}</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </nav>
+    </div>
+
+    <!-- Body -->
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-danger">
+        <div class="container d-flex justify-content-between py-5">
+            <!-- Logo -->
+            <div class="text-white">
+                <img src="./img/loong-logo-footer.png" alt="" style="width: 130px;">
+                <h6 class="mt-3">Công ty TNHH Thực Phẩm LoongFood</h6>
+                <ul style="list-style: none;" class="p-0">
+                    <li>Tầng 18, Tòa nhà VinCom Nguyễn Chí Thanh, phường Láng Hạ, Quận Đống Đa, Hà Nội, Việt Nam.</li>
+                    <li>Điện thoại: 0969 315 888</li>
+                    <li>Email: contact@loongfood.vn</li>
+                    <li>
+                        <a class="text-white me-2" href="https://www.facebook.com/" target="_blank"><i
+                                class="fa-brands fa-square-facebook"></i></i></a>
+                        <a class="text-white me-2" href="https://www.twitter.com/" target="_blank"><i
+                                class="fa-brands fa-twitter"></i></i></a>
+                        <a class="text-white me-2" href="https://www.linkedin.com/" target="_blank"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                        <a class="text-white me-2" href="https://www.google.com/" target="_blank"><i
+                                class="fa-brands fa-google-plus-g"></i></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Map -->
+            <div class="mx-5">
+                <h6 class="text-light">ĐỊA CHỈ SẢN XUẤT</h6>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.559896767903!2d105.86464651424565!3d21.05028859242034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abd2e4799c91%3A0x6e15204dc5270762!2zMzAgxJAuIE5n4buNYyBUaOG7pXksIE5n4buNYyBUaOG7pXksIExvbmcgQmnDqm4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1673944216167!5m2!1svi!2s"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+
+            <!-- Menu -->
+            <div class="ms-5 text-white">
+                <h6>ĐĂNG KÝ NHẬN THÔNG TIN</h6>
+                <p>Xin vui lòng để lại địa chỉ email, chúng tôi sẽ gửi thông tin khuyến mãi trong tháng ngay cho bạn.
+                </p>
+                <form>
+                    <input class="form-control" type="text" name="fullname" placeholder="Tên của bạn...">
+                    <input class="form-control my-2" type="email" name="email" placeholder="Email của bạn...">
+                    <button class="form-control bg-primary text-white border-0" type="submit"><i
+                            class="fa-sharp fa-solid fa-paper-plane"></i> Đăng ký</button>
+                </form>
+            </div>
+        </div>
+        <div class="container-fluid bg-dark py-2">
+            <div class="container text-white text-center">Bản quyền thuộc LoongFood Company®
+                 | <a class="text-decoration-none text-warning" href="#!login">Đăng nhập</a> | 
+                <a class="text-decoration-none text-secondary" href="#!resigner">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

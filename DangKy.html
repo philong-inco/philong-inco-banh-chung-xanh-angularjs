@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loong - Đăng ký</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+
+    <!-- Body -->
+    <div class="pt-5" style="background-image: url(./img/back-ground-0.jpg); min-height: calc(100vh - 250px);">
+        <div class="container mt-5 w-25">
+            <h2 class="mt-5 mb-3 text-white">Đăng ký</h2>
+
+            <form>
+                <div class="mb-3">
+                    <label for="fullName" class="form-label text-white">Họ và tên</label>
+                    <input ng-model="account.name" type="text" class="form-control" id="fullName" placeholder="Nhập họ và tên">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label text-white">Email</label>
+                    <input ng-model="account.email" type="email" class="form-control" id="email" placeholder="Nhập địa chỉ email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label text-white">Mật khẩu</label>
+                    <input ng-model="account.password" type="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
+                </div>
+                <div class="d-flex justify-content-around">
+                    <button ng-click="dangKy()" type="submit" class="btn btn-primary mb-5">Đăng ký</button>
+                    <a href="#!login" type="submit" class="btn btn-secondary mb-5">Đăng nhập</a>
+                </div>
+                <div style="min-height: 50px;">
+                    <span ng-show="!isGood" class="text-warning bg-dark p-2 rounded">{{mess}}</span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

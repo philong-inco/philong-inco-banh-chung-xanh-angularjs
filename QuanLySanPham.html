@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loong - Admin | Quản lý sản phẩm</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <!-- Body -->
+    <div class="container" style="min-height: calc(100vh - 443px);">
+
+        <!-- Chia layout 3-7 -->
+        <div class="d-flex mt-3">
+            <!-- Menu sidebar -->
+            <div class="w-25 position-relative">
+                <div class="position-sticky top-0 start-0 me-3 mb-3">
+                    <h5 class="my-2">Quản trị</h5>
+                    <nav class="navbar bg-light rounded border-1 shadow">
+
+                        <div class="container-fluid">
+                            <!-- Links -->
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold" href="QuanLyDanhMuc.html">Quản lý danh mục</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold" href="QuanLySanPham.html">Quản lý sản phẩm</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold" href="QuanLyDonHang.html">Quản lý đơn hàng</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Nội dung trang chủ -->
+            <div class="w-75 bg-light">
+                <h4>Quản lý sản phẩm</h4>
+
+                <!-- form nhập thông tin -->
+                <div>
+                    <form action="">
+                        <label class="form-label fw-bold">Tên sản phẩm:</label>
+                        <input type="text" class="form-control">
+                        <label class="form-label fw-bold">Mô tả sản phẩm:</label>
+                        <input type="text" class="form-control">
+                        <label class="form-label fw-bold mt-3">Khối lượng sản phẩm:</label><br>
+                        <input type="radio"><span class="ms-1 me-3">1.3 kg</span>
+                        <input type="radio"><span class="ms-1 me-3">1.5 kg</span>
+                        <input type="radio"><span class="ms-1 me-3">1.8 kg</span><br>
+                        <label class="form-label mt-3 fw-bold">Số lượng tồn kho:</label><br>
+                        <input type="number" class="form-control">
+                        <label class="form-label mt-3 fw-bold">Ảnh sản phẩm:</label><br>
+                        <a href="#" class="text-decoration-none text-dark"><i
+                                class="fa-solid fa-folder text-primary"  onclick="alert('Mở foder thành công')"></i> Tải lên</a><br>
+                        <label class="form-label mt-3 fw-bold">Giá bán:</label><br>
+                        <input type="number" class="form-control">
+                        <button type="submit" class="bg-success text-light border rounded py-1 px-2 mt-3" onclick="alert('Thêm thành công')">Thêm
+                            mới</button>
+                        <button type="submit" class="bg-primary text-light border rounded py-1 px-2 mt-3" onclick="alert('Sửa thành công')">Sửa</button>
+                        <button type="submit" class="bg-danger text-light border rounded py-1 px-2 mt-3" onclick="alert('Xóa thành công')">Xóa</button>
+                    </form>
+                </div>
+
+
+                <!-- Bảng danh sách sản phẩm -->
+                <div class="container my-3">
+                    <h3>Danh sách sản phẩm</h3>
+                    <p>Danh sách sản phẩm trong cửa hàng:</p>
+                    <table class="table table-hover mb-2">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Mã</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Mô tả</th>
+                                <th>Loại</th>
+                                <th>Số lượng</th>
+                                <th>Giá bán</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>SP001</td>
+                                <td>Bánh chưng mặn</td>
+                                <td>Sản phẩm thơm ngon, béo ngậy</td>
+                                <td>Nhân mặn</td>
+                                <td>345</td>
+                                <td>60,000đ</td>
+
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>SP002</td>
+                                <td>Bánh chưng ngọt</td>
+                                <td>Sản phẩm thơm ngon, béo ngậy</td>
+                                <td>Nhân ngọt</td>
+                                <td>56</td>
+                                <td>70,000đ</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>SP003</td>
+                                <td>Bánh chưng gấc</td>
+                                <td>Sản phẩm thơm ngon, béo ngậy</td>
+                                <td>Nhân gấc</td>
+                                <td>126</td>
+                                <td>80,000đ</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>SP004</td>
+                                <td>Bánh chưng gấc chay</td>
+                                <td>Sản phẩm thơm ngon, béo ngậy</td>
+                                <td>Nhân gấc</td>
+                                <td>75</td>
+                                <td>85,000đ</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>SP005</td>
+                                <td>Giò chả thơm ngon</td>
+                                <td>Sản phẩm thơm ngon, béo ngậy</td>
+                                <td>1.3kg</td>
+                                <td>77</td>
+                                <td>250,000đ</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>SP006</td>
+                                <td>Bánh dầy ngon</td>
+                                <td>Sản phẩm thơm ngon, béo ngậy</td>
+                                <td>Đỗ chay</td>
+                                <td>88</td>
+                                <td>20,000đ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button class="bg-warning text-white border rounded px-3 py-1 mx-1">|<</button>
+                                <button class="bg-warning text-white border rounded px-3 py-1 mx-1">
+                                    <<</button>
+                                        <button class="bg-warning text-white border rounded px-3 py-1 mx-1">>></button>
+                                        <button class="bg-warning text-white border rounded px-3 py-1 mx-1">>|</button>
+                    </div>
+
+                    <!-- Thông tin chi tiết sản phẩm -->
+                    <div class="my-5 p-2 border-0 rounded shadow" style="background-color: blanchedalmond;">
+                        <h3>Thông tin chi tiết sản phẩm</h3>
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="h6">ID sản phẩm:</span>
+                            </div>
+                            <div class="col-6">
+                                <span>1</span>
+                            </div>
+                        </div>
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="h6">Mã sản phẩm:</span>
+                            </div>
+                            <div class="col-6">
+                                <span>SP001</span>
+                            </div>
+                        </div>
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="h6">Tên sản phẩm:</span>
+                            </div>
+                            <div class="col-6">
+                                <span>Bánh chưng mặn ngon béo ngậy</span>
+                            </div>
+                        </div>
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="h6">Mô tả sản phẩm:</span>
+                            </div>
+                            <div class="col-6">
+                                <span>Bánh nhân ngon, nguyên liệu tươi ngon, bảo quản trong điều kiện mát, tránh ánh
+                                    nắng trực tiếp</span>
+                            </div>
+                        </div>
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="h6">Phân loại:</span>
+                            </div>
+                            <div class="col-6">
+                                <span>Nhân mặn</span>
+                            </div>
+                        </div>
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="h6">Số lượng:</span>
+                            </div>
+                            <div class="col-6">
+                                <span>334</span>
+                            </div>
+                        </div>
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="h6">Giá bán:</span>
+                            </div>
+                            <div class="col-6">
+                                <span>70,000đ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

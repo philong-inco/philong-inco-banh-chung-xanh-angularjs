@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loong - Đăng nhập</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+
+</head>
+
+<body>
+
+
+    <!-- Body -->
+    <div id="1" class="pt-5" style="background-image: url(./img/back-ground-4.jpg); min-height: calc(100vh - 443px);">
+        <div class="container mt-5 w-25">
+            <h2 class="mt-5 mb-3 text-white">Đăng nhập</h2>
+
+            <form>
+                <div class="mb-3">
+                    <label for="fullName" class="form-label text-white">Email</label>
+                    <input ng-model="acc.email" type="text" class="form-control" id="fullName" placeholder="Nhập email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label text-white">Password</label>
+                    <input ng-model="acc.password" type="password" class="form-control" id="email" placeholder="Nhập mật khẩu">
+                </div>
+
+
+
+                <button ng-click="login()" type="submit" class="btn btn-warning mt-2 mb-5">Đăng nhập</button>
+                <div style="min-height: 50px;"><span ng-show="!isGood" class="text-white">{{mess}}</span></div>
+                <button type="submit" class="btn btn-primary mt-2 mb-5"><i
+                        class="fa-brands fa-google me-1"></i>Đăng nhập với Google</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

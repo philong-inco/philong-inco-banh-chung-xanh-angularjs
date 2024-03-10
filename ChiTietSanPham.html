@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loong - Chi tiết sản phẩm</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+
+    <script src="ChiTietSanPham.js"></script>
+
+</head>
+
+<body ng-controller="ChiTietSanPhamCtrl">
+
+
+
+    <!-- Body -->
+    <div class="container" style="min-height: calc(100vh - 443px);">
+        <!-- Sản phẩm chi tiết -->
+        <div>
+            <div class="row my-5">
+                <!-- Ảnh sản phẩm -->
+                <div class="col-6 pe-5 ps-2 py-2">
+                    <!-- Bọc -->
+                    <div>
+                        <!-- Ảnh -->
+                        <div>
+                            <!-- Main image -->
+                            <div class="border-0 rounded overflow-hidden">
+                                <img src="{{product.img}}" alt="" class="w-100">
+                            </div>
+
+                            <!-- Child image -->
+                            <div class="d-flex justify-content-between align-items-center my-2">
+                                <!-- Item child -->
+                                <div class="border-0 rounded overflow-hidden" style="width: 24%;">
+                                    <img src="{{product.img}}" alt="" class="w-100">
+                                </div>
+                                <!-- Item child -->
+                                <div class="border-0 rounded overflow-hidden" style="width: 24%;">
+                                    <img src="{{product.img}}" alt="" class="w-100">
+                                </div>
+                                <!-- Item child -->
+                                <div class="border-0 rounded overflow-hidden" style="width: 24%;">
+                                    <img src="{{product.img}}" alt="" class="w-100">
+                                </div>
+                                <!-- Item child -->
+                                <div class="border-0 rounded overflow-hidden" style="width: 24%;">
+                                    <img src="{{product.img}}" alt="" class="w-100">
+                                </div>
+                            </div>
+
+                            <!-- Social -->
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span>Chia sẻ:</span>
+                                    <i class="fa-brands fa-facebook-messenger text-info mx-1"></i>
+                                    <i class="fa-brands fa-facebook text-primary mx-1"></i>
+                                    <i class="fa-brands fa-pinterest text-danger mx-1"></i>
+                                    <i class="fa-brands fa-twitter text-primary mx-1"></i>
+                                </div>
+                                <div>
+                                    <i class="fa-regular fa-heart text-danger mx-1"></i>
+                                    <span>Đã thích (+32)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Mô tả -->
+                <div class="col-6">
+                    <h4>{{product.name}}</h4>
+                    <span>{{product.description}}</span>
+                    <!-- đánh giá icon -->
+                    <div class="d-flex mt-2">
+                        <div class="text-warning me-4">
+                            <span class="fw-medium text-decoration-underline">4.8</span>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="text-warning me-4">
+                            <span class="fw-medium text-decoration-underline text-secondary">{{product.totalReview}}</span>
+                            <span class="text-secondary">Đánh giá</span>
+                        </div>
+
+                        <div class="text-warning me-4">
+                            <span class="fw-medium text-decoration-underline text-secondary">{{product.totalSale}}</span>
+                            <span class="text-secondary">Đã bán</span>
+                        </div>
+                    </div>
+
+                    <!-- Giá bán -->
+                    <div class="mt-4 position-relative">
+                        <span class="fs-3 fw-bold text-danger" style="z-index: 100;">{{priceConvert}}</span>
+                        <span class="position-absolute text-warning bg-dark p-1 border-0 rounded shadow fst-italic fw-medium" style="left: 147px; top: -10px; z-index: 1;">Giảm giá</span>
+                    </div>
+
+                    <!-- Phân loại -->
+                    <!-- <div class="my-4">
+                        <span class="h6">Phân loại</span>
+                        <div class="d-flex mt-2">
+                            <div class="rounded border border-danger me-4 p-2 px-3">
+                                <span class="text-secondary">1.3kg</span>
+                            </div>
+                            <div class="rounded border border-danger me-4 p-2">
+                                <span class="text-secondary">1.5kg</span>
+                            </div>
+                            <div class="rounded border border-danger me-4 p-2">
+                                <span class="text-secondary">1.8kg</span>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- Số lượng -->
+                    <div class="mt-2">
+                        <form>
+                            <span class="h6 mt-2">Số lượng:</span>
+                            <input ng-model="numberOrder" type="number"  style="width: 50px;"
+                                class="border rounded border-secondary">
+                                <span class="d-block fst-italic text-secondary mt-2">Còn {{product.total}} sản phẩm</span>
+                        </form>
+                    </div>
+
+                    <!-- Nút mua hàng/ thêm vào giỏ -->
+                    <div class="row my-4">
+                        <div class="col-6 pe-2">
+                            <a href="#!product-comfirm/{{product.id}}">
+                                <button class="btn btn-success w-100">Mua ngay</button>
+                            </a>
+                        </div>
+                        <div class="col-6 ps-2">
+                            
+                                <button class="btn btn-danger w-100" ng-click="addToCart(product.id, product.name, product.price, product.img)">Thêm vào giỏ</button>
+                            
+                        </div>
+                    </div>
+
+                    <!-- thông tin thêm -->
+                    <div class="mt-5">
+                        <div>
+                            <i class="fa-solid fa-truck-fast text-success me-2"></i>
+                            <span>Miễn phí giao hàng trong nội thành Hà Nội</span>.
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-bolt-lightning text-primary me-3"></i>
+                            <span>Giảm 10% cho hóa đơn trên 1,000,000 VNĐ</span>.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Đánh giá -->
+            <div>
+                <h5>Đánh giá sản phẩm</h5>
+                <div class="my-4">
+                    <!-- Item -->
+                    <div class="p-3 d-flex justify-content-start my-2" style="background-color: blanchedalmond;">
+                        <div class="w-25">
+                            <img src="./img/favicon.png" alt="" style="width: 40px;">
+                            <span class="fw-bold ms-2">Long Nguyễn</span>
+                        </div>
+                        <div class="w-75">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-check text-success ms-3"></i>
+                            <span>Đã mua 3 tháng trước</span>
+                            <p>ngon ạ em đã đặt hàng nhiều lầm của shop rồi nhưng e có thắc mắc là sao tai 
+                                sao mỗi lần lại khác nhau ạ, dùng mac shopee live nên rất rẻ mọi người mên mua ạ</p>
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="p-3 d-flex justify-content-start my-2" style="background-color: blanchedalmond;">
+                        <div class="w-25">
+                            <img src="./img/favicon.png" alt="" style="width: 40px;">
+                            <span class="fw-bold ms-2">Long Nguyễn</span>
+                        </div>
+                        <div class="w-75">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-check text-success ms-3"></i>
+                            <span>Đã mua 3 tháng trước</span>
+                            <p>ngon ạ em đã đặt hàng nhiều lầm của shop rồi nhưng e có thắc mắc là sao tai 
+                                sao mỗi lần lại khác nhau ạ, dùng mac shopee live nên rất rẻ mọi người mên mua ạ</p>
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="p-3 d-flex justify-content-start my-2" style="background-color: blanchedalmond;">
+                        <div class="w-25">
+                            <img src="./img/favicon.png" alt="" style="width: 40px;">
+                            <span class="fw-bold ms-2">Long Nguyễn</span>
+                        </div>
+                        <div class="w-75">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-check text-success ms-3"></i>
+                            <span>Đã mua 3 tháng trước</span>
+                            <p>ngon ạ em đã đặt hàng nhiều lầm của shop rồi nhưng e có thắc mắc là sao tai 
+                                sao mỗi lần lại khác nhau ạ, dùng mac shopee live nên rất rẻ mọi người mên mua ạ</p>
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="p-3 d-flex justify-content-start my-2" style="background-color: blanchedalmond;">
+                        <div class="w-25">
+                            <img src="./img/favicon.png" alt="" style="width: 40px;">
+                            <span class="fw-bold ms-2">Long Nguyễn</span>
+                        </div>
+                        <div class="w-75">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-check text-success ms-3"></i>
+                            <span>Đã mua 3 tháng trước</span>
+                            <p>ngon ạ em đã đặt hàng nhiều lầm của shop rồi nhưng e có thắc mắc là sao tai 
+                                sao mỗi lần lại khác nhau ạ, dùng mac shopee live nên rất rẻ mọi người mên mua ạ</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
